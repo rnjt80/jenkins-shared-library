@@ -1,6 +1,6 @@
-def call(String versionfile) {
-  def versionFile = readFile("${versionfile}")
-  def version = versionFile.toString().tokenize('version:')[1].split('"')[1]
-  // Set the environment variable
-  env.ImageTag = version
+def call(String versionfile, String dockerImageName) {
+  def version = readJSON file: "${versionfile}"
+  env.ImageTag = version.version
+  def dockerImage = "${dockerImageName}:"${env.ImageTag}"
+  
 }
