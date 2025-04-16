@@ -1,6 +1,6 @@
 def call(String versionfile) {
-  File = readFile("${versionfile}")
-  version = File.toString().tokenize('version:')[1].split('"')[1]
+  versionFile = readFile("${versionfile}")
+  version = versionFile.toString().tokenize('version:')[1].split('"')[1]
   // Set the environment variable
   env.ImageTag = version
 }
