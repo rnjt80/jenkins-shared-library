@@ -1,4 +1,5 @@
 def call(String url, String branch) {
+  withCredentials([(credentialsId: 'github')]) {
   echo "Cloning repo from $url"
-  git credentialsId: github, url: "${url}", branch: "${main}"
+  git url: "${url}", branch: "${main}"
 }
