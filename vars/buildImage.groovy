@@ -4,6 +4,6 @@ def call(String versionfile, String dockerImageName) {
   echo "${ImageTag}"
   env.ImageTag = version.version
   echo "${env.ImageTag}"
-  dockerImage = docker.build "${dockerImageName}":"${env.ImageTag}"
+  dockerImage = docker.build "${dockerImageName}:${env.ImageTag}"
 
 }
